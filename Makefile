@@ -43,3 +43,10 @@ install-redis-exporter:
 
 install-app-scrapper:
 	 kubectl create secret generic additional-scrape-configs --from-file=k8s/monitoring/prometheus-additional.yaml -n monitoring
+
+chaos-mesh-install:
+	kubectl create ns chaos-testing || true
+	helm install chaos-mesh chaos-mesh/chaos-mesh --namespace=chaos-testing --version 2.1.5 --set dashboard.securityMode=false
+
+pod-failure:
+	kubectl apply -f k8s/monitoring/pod-failure.yaml

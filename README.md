@@ -36,3 +36,6 @@ Also pod should be monitored by CPU/Mem usage and other standard metrics. And al
 5. Prometheus/Grafana installed using helm. I had some issues with local environment and node exporter didn't work fully. I didn't have time to tshoot it unfortunately.
 Metrics was added to the image. Scrapper was configured for go-app, and redis-exporter for redis.
 We can import some preconfigured dashboards from marketplace like 6671 for go-metrics and 763 for redis exporter metrics. (was shown on screenshots)
+We can simulate failure using chaos mesh tool. Steps provided in Makefile. Screenshots for app-OK and app-FAIL provided. Alerts can be configured on this or similar behaviour.
+
+ 

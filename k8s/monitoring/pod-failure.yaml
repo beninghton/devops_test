@@ -1,0 +1,15 @@
+kind: PodChaos
+apiVersion: chaos-mesh.org/v1alpha1
+metadata:
+  namespace: go-app
+  name: 'go-app-podchaos'
+spec:
+  selector:
+    namespaces:
+      - go-app
+    labelSelectors:
+      app: go-app
+  mode: one
+  action: pod-failure
+  duration: 1m
+  gracePeriod: 0
